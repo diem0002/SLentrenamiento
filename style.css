@@ -24,14 +24,14 @@ input, select, button {
 
 button {
   margin-top: 15px;
-  background-color: #28a745;
+  background-color: #6f7c72;
   color: white;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #545c56;
 }
 
 #attendance-list {
