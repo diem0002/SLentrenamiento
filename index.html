@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistencia al Gimnasio</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+
+    // Configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDI7iq3iIi3ttZKbQBp3fDJqMRxvIrIrl0",
+      authDomain: "gimm-f30a3.firebaseapp.com",
+      projectId: "gimm-f30a3",
+      storageBucket: "gimm-f30a3.appspot.com",
+      messagingSenderId: "252060170967",
+      appId: "1:252060170967:web:c5dab4f3cc330039e00e92"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Asistencia al Gimnasio</h1>
+
+    <!-- Botones de Acceso -->
+    <div id="access-buttons">
+      <button id="signup-button">Registrarse</button>
+      <button id="login-button">Iniciar Sesión</button>
+    </div>
+
+    <!-- Formulario de Registro -->
+    <div id="signup-container" style="display:none;">
+      <h2>Registro</h2>
+      <form id="signup-form">
+        <label for="signup-email">Email:</label>
+        <input type="email" id="signup-email" required>
+        <label for="signup-password">Contraseña:</label>
+        <input type="password" id="signup-password" required>
+        <button type="submit">Registrar</button>
+      </form>
+    </div>
+
+    <!-- Formulario de Inicio de Sesión -->
+    <div id="login-container" style="display:none;">
+      <h2>Iniciar Sesión</h2>
+      <form id="login-form">
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" required>
+        <label for="login-password">Contraseña:</label>
+        <input type="password" id="login-password" required>
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+    </div>
+
+    <!-- Contenedor de Asistencia -->
+    <div id="attendance-container" style="display:none;">
+      <form id="attendance-form">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" required>
+        <label for="day">Día:</label>
+        <select id="day" required>
+          <option value="Lunes">Lunes</option>
+          <option value="Martes">Martes</option>
+          <option value="Miércoles">Miércoles</option>
+          <option value="Jueves">Jueves</option>
+          <option value="Viernes">Viernes</option>
+          <option value="Sábado">Sábado</option>
+        </select>
+        <label for="time">Horario:</label>
+        <select id="time" required>
+          <option value="8:00">8:00</option>
+          <option value="10:00">10:00</option>
+          <option value="12:00">12:00</option>
+          <option value="15:00">15:00</option>
+          <option value="16:00">16:00</option>
+        </select>
+        <button type="submit">Registrar Asistencia</button>
+      </form>
+
+      <button id="logout-button" style="margin-top: 20px;">Cerrar Sesión</button>
+
+      <h2>Asistencia de Hoy</h2>
+      <table id="attendance-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Día</th>
+            <th>Horario</th>
+          </tr>
+        </thead>
+        <tbody id="attendance-list"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
